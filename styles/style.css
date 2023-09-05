@@ -16,10 +16,10 @@ html {
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
-  /* Добавил */
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  padding: 133px 30px;
 }
 
 h1,
@@ -41,22 +41,20 @@ ol {
   list-style: none;
 }
 
-/* добавил */
-
 a {
   text-decoration: none;
 }
 
 :active,
 :hover,
-:focus
- {
+:focus {
   text-decoration: none;
   outline: 0;
+  border: none;
 }
 
 .visually-hidden {
-  
+  position: absolute;
   inline-size: 1px;
   block-size: 1px;
   overflow: hidden;
@@ -69,13 +67,21 @@ a {
   display: flex;
   gap: 30px;
   align-items: flex-end;
+  justify-content: center;
   width: 1140px;
 }
 
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .result__video-container {
+  display: block;
+  position: relative;
   width: 711px;
   height: 386px;
-  margin-bottom: 26px;  /* костыль, видео оторбажается некорректно и прелоадер тоже */
 }
 
 .result__video {
@@ -83,24 +89,20 @@ a {
 }
 
 .search-form {
+  width: 711px;
+  height: 54px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  margin-top: 26px;
 }
 
 .search-form__fieldset {
+  flex-direction: column;
+  align-items: flex-start;
   border: 0;
   display: flex;
-  flex-direction: column;
   gap: 5px;
-}
-
-.search-form__textfield:active {
-  border: 1px solid #FFF;
-}
-
-.search-form__textfield:focus {
-  outline: 1px solid #FFF;
 }
 
 .search-form__fieldset-title {
@@ -123,20 +125,6 @@ a {
   gap: 5px;
   align-items: center;
   cursor: pointer;
-}
- 
-/* не работает */
-.search-form__label:focus {
-  border: 1px solid #FFF;
-}
-
-.search-form__label-text:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.search-form__label-text:focus-visible {
-  outline: 1px solid #fff;
 }
 
 .search-form__textfield {
@@ -163,6 +151,18 @@ a {
   cursor: pointer;
 }
 
+.search-form__label:focus-within,
+.search-form__textfield:focus,
+button:focus {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
+.search-form__label:has([type="checkbox"]:hover) {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 input[type="checkbox"]:checked + span {
   background-image: url(../images/check_box.svg);
   background-position: center;
@@ -172,14 +172,16 @@ input[type="checkbox"]:focus-visible + span {
   border: 1px solid #fff;
 }
 
+.search-form__textfield:active {
+  border: 1px solid #fff;
+}
+
 button {
-  border: none;
-  outline: 1px solid #fff;
+  border: 1px solid #fff !important;
   cursor: pointer;
   background-color: transparent;
   height: 34px;
   color: #fff;
-  text-align: center;
   font-family: inherit;
   font-size: 18px;
   font-style: normal;
@@ -188,23 +190,21 @@ button {
 }
 
 button:hover {
-  border: 1px solid #FFF;
   text-decoration: underline;
 }
 
 button:active {
-  border: 1px solid #FFF;
   background: #545050;
   text-decoration: none;
 }
 
-button:focus {
-  outline: thick double #FFF;
-  height: 38px;
-}
-
 .search-form__submit-button {
   width: 194px;
+}
+
+.more-button {
+  width: 399px;
+  margin: 1px;
 }
 
 .title {
@@ -220,7 +220,7 @@ button:focus {
   display: flex;
   flex-direction: column;
   gap: 26px;
-  width: 100%;
+  align-items: flex-start;
 }
 
 .content__accent {
@@ -233,6 +233,7 @@ button:focus {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  position: relative;
 }
 
 .content__list-item {
@@ -251,20 +252,21 @@ button:focus {
 .content__video-card {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   color: #fff;
 }
 
-.content__video-card:hover {
+.content__card-link:hover {
   cursor: pointer;
-  text-decoration: underline;
+  text-decoration: underline #fff;
 }
 
-.content__video-card:active {
+.content__card-link:active {
   background: #545050;
   text-decoration: none;
 }
 
-.content__video-card:focus {
+.content__card-link:focus {
   border: 1px solid #fff;
 }
 
@@ -273,7 +275,7 @@ button:focus {
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
-  line-height: 100%; /* 30px */
+  line-height: 100%;
   text-transform: uppercase;
 }
 
@@ -284,9 +286,4 @@ button:focus {
 
 .content__video-card-description-container {
   width: 200px;
-}
-
-.more-button {
-  width: 399px;
-  margin: 1px;
 }
