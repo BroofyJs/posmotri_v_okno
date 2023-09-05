@@ -1,7 +1,6 @@
 .error {
-  position: relative;
-  /* position: absolute; */
-  /* inset: 0; */
+  position: absolute;
+  inset: 0; 
   display: flex;
   justify-content: center;
   align-items: center;
