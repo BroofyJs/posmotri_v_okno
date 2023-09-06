@@ -93,15 +93,15 @@ a {
   width: 711px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   margin-top: 16px;
 }
 
 .search-form__fieldset {
+  display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
   border: 0;
-  display: flex;
   gap: 5px;
 }
 
@@ -197,6 +197,7 @@ button:active {
 
 .search-form__submit-button {
   width: 194px;
+  align-self: flex-end;
 }
 
 .more-button {
