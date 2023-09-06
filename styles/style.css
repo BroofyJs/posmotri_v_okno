@@ -66,7 +66,6 @@ a {
   display: flex;
   gap: 30px;
   align-items: flex-end;
-  justify-content: center;
   width: 1140px;
 }
 
@@ -87,6 +86,7 @@ a {
   width: inherit;
   height: inherit;
   object-fit: cover;
+  object-position: center;
 }
 
 .search-form {
@@ -110,7 +110,6 @@ a {
   font-size: 18px;
   font-weight: 400;
   font-style: normal;
-  font-weight: 400;
   line-height: normal;
   cursor: default;
 }
@@ -154,7 +153,7 @@ a {
 
 .search-form__label:has([type="checkbox"]:focus-visible),
 .search-form__textfield:focus,
-button.search-form__submit-button:focus-visible {
+button:focus-visible {
   outline: 1px solid #fff;
   outline-offset: 2px;
 }
@@ -202,7 +201,12 @@ button:active {
 
 .more-button {
   width: 399px;
-  margin: 1px;
+}
+
+.more-button:focus-visible {
+  width: 394px;
+  margin-bottom: 2px;
+  margin-left: 3px;
 }
 
 .title {
