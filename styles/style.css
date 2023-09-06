@@ -206,7 +206,7 @@ button:active {
 
 .more-button:focus-visible {
   width: 394px;
-  margin-bottom: 2px;
+  margin-bottom: 3px;
   margin-left: 3px;
 }
 
